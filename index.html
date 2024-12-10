@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async vs Defer vs Inline: Script Loading Example</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #demo {
+      display: none;
+      margin-top: 20px;
+      margin-left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Async vs Defer vs Inline Script Loading</h1>
+  
+  <div class="container">
+    <div class="box async-box" id="async-box">
+      <h2>Async Script</h2>
+      <p>Loads independently and executes immediately once ready.</p>
+    </div>
+
+    <div class="box defer-box" id="defer-box">
+      <h2>Defer Script</h2>
+      <p>Loads in order and executes after the document is parsed.</p>
+    </div>
+
+    <div class="box inline-box" id="inline-box">
+      <h2>Inline Script</h2>
+      <p>Executes immediately when encountered during parsing.</p>
+    </div>
+  </div>
+  <img id="demo" src="demo.jpg" alt="Placeholder Image" />
+  <button id="start-button">explanation</button>
+
+  <!-- Simulate inline script -->
+  <script>
+    const inlineBox = document.getElementById("inline-box");
+    inlineBox.classList.add("show");
+
+    document.getElementById('start-button').addEventListener('click', function() {
+      document.getElementById('demo').style.display = 'block';
+    });
+  </script>
+
+  <!-- Simulate async script -->
+  <script async src="async-script.js"></script>
+
+  <script defer src="index.js"></script>
+
+  <!-- Simulate defer script -->
+  <script defer src="defer-script.js"></script>
+
+  <!-- Add the JS for animations
+  <script src="script.js"></script> -->
+</body>
+</html>
